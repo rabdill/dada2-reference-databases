@@ -1,0 +1,153 @@
+---
+title: "Prepare Silva 138.1 SSU taxonomy data for DADA2"
+author: "Michael McLaren"
+date: "2021-03-06"
+output:
+  html_document:
+    toc: false
+    toc_float: true
+    self_contained: true
+    highlight: tango
+---
+
+```{r, include = FALSE}
+# knitr chunk options
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  cache = FALSE
+)
+```
+
+This script downloads Silva SSU 138.1 taxonomic database files and formats them for use with DADA2. 
+
+```{r}
+library(dplyr) 
+library(tibble) 
+library(stringr) 
+library(purrr) 
+
+packageVersion("dada2")
+
+silva_version <- "138.1"
+
+# Path for storing precursor files and output
+path <- here::here("silva-138.1")
+```
+
+Create the locations where we will download the precursor files and save our output,
+```{r}
+dir.create(file.path("precursors"))
+dir.create(file.path(path, "output"))
+```
+
+The precursor files are available from Silva at
+
+- https://www.arb-silva.de/no_cache/download/archive/release_138.1/Exports
+- https://www.arb-silva.de/no_cache/download/archive/release_138_1/Exports
+
+These two listings seem to be of identical files.
+
+Download the precursor files and their MD$ checksums,
+```{r}
+base_url <- str_glue("https://www.arb-silva.de/fileadmin/silva_databases/release_{silva_version}")
+
+fns <- c(
+  ref = "SILVA_{silva_version}_SSURef_tax_silva.fasta.gz",
+  ref_nr = "SILVA_{silva_version}_SSURef_NR99_tax_silva.fasta.gz",
+  tax = "tax_slv_ssu_{silva_version}.txt.gz"
+) %>%
+  map_chr(str_glue)
+ftb <- fns %>%
+  enframe("type", "file") %>%
+  mutate(
+    url = case_when(
+      type == "tax" ~ file.path(base_url, "Exports", "taxonomy", file),
+      TRUE ~ file.path(base_url, "Exports", file)
+    ),
+    destfile = file.path(path, "precursors", file),
+  ) %>%
+  mutate(
+    across(-type, str_c, ".md5", .names = "{.col}_md5"),
+    file_exists = file.exists(destfile)
+  )
+# Only download the main files if they haven't already been downloaded
+ftb %>% 
+  filter(!file_exists) %>%
+  select(url, destfile) %>% 
+  pwalk(download.file, method = "wget")
+ftb %>% select(url = url_md5, destfile = destfile_md5) %>% pwalk(download.file)
+```
+
+Check files against their MD5s,
+```{r}
+ftb <- ftb %>%
+  mutate(
+    local_md5 = map_chr(destfile, tools::md5sum),
+    remote_md5 = map(destfile_md5, read.table) %>% map_chr(pull, 1)
+  )
+stopifnot(all.equal(ftb$local_md5, ftb$remote_md5))
+```
+
+Extract the `tax_slv_ssu_{silva_version}.txt.gz` file,
+```{r}
+precursors <- ftb %>% select(type, destfile) %>% deframe
+system2("gunzip", args = precursors["tax"])
+precursors["tax"] <- precursors["tax"] %>% str_extract(".+[^\\.gz$]")
+```
+
+Download the Silva license,
+```{r}
+download.file(
+  file.path(base_url, "LICENSE.txt"),
+  file.path(path, "SILVA_LICENSE.txt")
+)
+```
+
+```{r}
+list.files(file.path(path, "precursors"))
+```
+
+Create the DADA2-formatted training files, with and without the species level, from the NR99 reference set,
+```{r}
+
+# Locations to save the files
+output <- c(
+  train = "silva_nr99_v{silva_version}_train_set.fa.gz",
+  train_with_species = "silva_nr99_v{silva_version}_wSpecies_train_set.fa.gz",
+  species = "silva_species_assignment_v{silva_version}.fa.gz"
+) %>%
+  map_chr(str_glue) %>%
+  map_chr(~file.path(path, "output", .))
+
+dada2:::makeTaxonomyFasta_SilvaNR(
+  precursors["ref_nr"],
+  precursors["tax"],
+  output["train"]
+)
+dada2:::makeTaxonomyFasta_SilvaNR(
+  precursors["ref_nr"],
+  precursors["tax"],
+  output["train_with_species"],
+  include.species = TRUE
+)
+```
+The addition of "99" in "nr99" distinguishes these files from the previous versions that were derived from the mothur wiki files.
+
+Create the DADA2-formatted species database file using the full reference set,
+```{r}
+dada2:::makeSpeciesFasta_Silva(
+  precursors["ref"],
+  output["species"]
+)
+```
+
+```{r}
+list.files(file.path(path, output))
+```
+
+## Session info
+
+```{r, R.options = list(width = 83)}
+sessioninfo::session_info()
+```
