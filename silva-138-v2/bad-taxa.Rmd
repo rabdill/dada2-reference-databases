@@ -1,0 +1,89 @@
+```{r}
+library(tidyverse)
+
+path <- here::here()
+silva_version <- "138"
+```
+
+```{r}
+tax_file <- "tax_slv_ssu_{silva_version}.txt" %>%
+  map_chr(str_glue) %>%
+  map_chr(~file.path(path, "precursors", .))
+
+tax <- tax_file %>%
+  read_tsv(col_names = c("path", "taxid", "rank", "remark", "release"))
+```
+
+Goal: For each rank, list all taxa with too-few semicolons at that rank
+
+```{r}
+rnks <- c("domain", "phylum", "class", "order", "family", "genus")
+tmp <- tibble(rank = rnks, semicolons_expected = seq(rnks))
+
+x <- tax %>%
+  mutate(
+    name = str_extract(path, "[^;]+(?=;$)"),
+    domain = str_extract(path, "^[^;]+"),
+    semicolons = str_count(path, ";"),
+  ) %>%
+  left_join(tmp, by = "rank") %>%
+  mutate(across(rank, factor, levels = rnks))
+
+x %>% count(domain)
+
+y <- x %>% filter(domain %in% c("Bacteria", "Archaea"))
+```
+
+Check if there are ever too many semi-colons:
+```{r}
+y %>%
+  count(sign = sign(semicolons - semicolons_expected))
+```
+There are two cases of too many semicolons, and one NA; let's check into these.
+```{r}
+y %>% filter(is.na(semicolons - semicolons_expected)) %>% c
+tax %>% filter(taxid == 46013) %>% c
+y %>% filter(semicolons > semicolons_expected) %>% pull(path)
+```
+We don't care about the suborder; but we do want to make sure that DADA2's processing function correctly removes the suborder when parsing the lower-level taxa.
+
+
+```{r}
+y %>%
+  filter(rank == "genus") %>%
+  count(domain, semicolons) %>%
+  with_groups(domain, mutate, frac = n / sum(n)) %>%
+  mutate(across(frac, round, 3)) %>%
+  knitr::kable()
+```
+
+```{r}
+y %>%
+  filter(rank == "family") %>%
+  count(domain, semicolons) %>%
+  with_groups(domain, mutate, frac = n / sum(n)) %>%
+  mutate(across(frac, round, 3)) %>%
+  knitr::kable()
+```
+
+Fraction ok for each prokaryotic domain and rank,
+```{r}
+y %>%
+  with_groups(c(domain, rank), 
+    summarize, frac_ok = mean(semicolons == semicolons_expected)
+  )
+```
+
+Taxa with fewer or more semicolons/ranks than expected:
+```{r}
+not_ok <- y %>%
+  filter(semicolons != semicolons_expected) %>%
+  select(rank, name, path, ranks_present = semicolons, ranks_expected = semicolons_expected) %>%
+  arrange(rank, name, path)
+```
+
+```{r}
+write_csv(not_ok, file.path(path, "bad-taxa.csv"))
+```
+
+

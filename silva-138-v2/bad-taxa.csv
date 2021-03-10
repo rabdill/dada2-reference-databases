@@ -1,0 +1,125 @@
+rank,name,path,ranks_present,ranks_expected
+family,Desulfuromonadaceae,Bacteria;Desulfobacterota;Desulfuromonadia;Desulfuromonadaceae;,4,5
+family,Geoalkalibacteraceae,Bacteria;Desulfobacterota;Desulfuromonadia;Geoalkalibacteraceae;,4,5
+family,Geopsychrobacteraceae,Bacteria;Desulfobacterota;Desulfuromonadia;Geopsychrobacteraceae;,4,5
+family,Geothermobacteraceae,Bacteria;Desulfobacterota;Desulfuromonadia;Geothermobacteraceae;,4,5
+family,Gracilibacteraceae,Bacteria;Firmicutes;Clostridia;Gracilibacteraceae;,4,5
+family,Hadarchaeales,Archaea;Hadarchaeota;Hadarchaeia;Hadarchaeales;,4,5
+family,Hungateiclostridiaceae,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;,4,5
+family,S32,Bacteria;Patescibacteria;Saccharimonadia;Saccharimonadales;YM;S32;,6,5
+family,Syntrophotaleaceae,Bacteria;Desulfobacterota;Desulfuromonadia;Syntrophotaleaceae;,4,5
+family,Thioprofundaceae,Bacteria;Proteobacteria;Gammaproteobacteria;Thioprofundaceae;,4,5
+genus,Acetivibrio,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Acetivibrio;,5,6
+genus,Alkalibaculum,Bacteria;Firmicutes;Clostridia;Eubacteriales;Alkalibaculum;,5,6
+genus,Alkaliphilus,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Alkaliphilus;,5,6
+genus,Anaerobacterium,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Anaerobacterium;,5,6
+genus,Anaerobranca,Bacteria;Firmicutes;Clostridia;Proteinivoracales;Anaerobranca;,5,6
+genus,Anaerococcus,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anaerococcus;,5,6
+genus,Anaeromicrobium,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anaeromicrobium;,5,6
+genus,Anaerosalibacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anaerosalibacter;,5,6
+genus,Anaerosphaera,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anaerosphaera;,5,6
+genus,Anaerovirgula,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anaerovirgula;,5,6
+genus,Anoxynatronum,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Anoxynatronum;,5,6
+genus,BBMC-4,Bacteria;Fibrobacterota;Fibrobacteria;Fibrobacterales;BBMC-4;,5,6
+genus,Brassicibacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Brassicibacter;,5,6
+genus,Caldanaerovirga,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Caldanaerovirga;,5,6
+genus,Caldinitratiruptor,Bacteria;Firmicutes;Symbiobacteriia;Symbiobacteriales;Caldinitratiruptor;,5,6
+genus,Caldisalinibacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Caldisalinibacter;,5,6
+genus,Caloranaerobacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Caloranaerobacter;,5,6
+genus,Candidatus Aenigmarchaeum,Archaea;Aenigmarchaeota;Aenigmarchaeia;Aenigmarchaeales;Candidatus Aenigmarchaeum;,5,6
+genus,Candidatus Deferrimonas,Bacteria;Desulfobacterota;Desulfuromonadia;Desulfuromonadaceae;Candidatus Deferrimonas;,5,6
+genus,Candidatus Dichloromethanomonas,Bacteria;Firmicutes;Desulfitobacteriia;Desulfitobacteriales;Candidatus Dichloromethanomonas;,5,6
+genus,Candidatus Iainarchaeum,Archaea;Iainarchaeota;Iainarchaeia;Iainarchaeales;Candidatus Iainarchaeum;,5,6
+genus,Candidatus Jidaibacter,Bacteria;Proteobacteria;Alphaproteobacteria;Rickettsiales;Candidatus Jidaibacter;,5,6
+genus,Candidatus Micrarchaeum,Archaea;Micrarchaeota;Micrarchaeia;Micrarchaeales;Candidatus Micrarchaeum;,5,6
+genus,Candidatus Midichloria,Bacteria;Proteobacteria;Alphaproteobacteria;Rickettsiales;Candidatus Midichloria;,5,6
+genus,Candidatus Protistobacter,Bacteria;Proteobacteria;Gammaproteobacteria;Burkholderiales;Candidatus Protistobacter;,5,6
+genus,Candidatus Spiroplasma,Bacteria;Firmicutes;Bacilli;Entomoplasmatales;Candidatus Spiroplasma;,5,6
+genus,Cellulosibacter,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Cellulosibacter;,5,6
+genus,Chitinispirillum,Bacteria;Fibrobacterota;Fibrobacteria;Fibrobacterales;Chitinispirillum;,5,6
+genus,Clostridiisalibacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Clostridiisalibacter;,5,6
+genus,Clostridium sensu stricto,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Clostridium sensu stricto;,5,6
+genus,Coralloluteibacterium,Bacteria;Proteobacteria;Gammaproteobacteria;Xanthomonadales;Coralloluteibacterium;,5,6
+genus,Cryptanaerobacter,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Cryptanaerobacter;,5,6
+genus,Desulfatiferula,Bacteria;Desulfobacterota;Desulfobacteria;Desulfobacterales;Desulfatiferula;,5,6
+genus,Desulfofarcimen,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Desulfofarcimen;,5,6
+genus,Desulfofundulus,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Desulfofundulus;,5,6
+genus,Desulfohalotomaculum,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Desulfohalotomaculum;,5,6
+genus,Desulfotomaculum,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Desulfotomaculum;,5,6
+genus,Desulfurispora,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Desulfurispora;,5,6
+genus,Desulfuromonas,Bacteria;Desulfobacterota;Desulfuromonadia;Desulfuromonadaceae;Desulfuromonas;,5,6
+genus,Desulfuromusa,Bacteria;Desulfobacterota;Desulfuromonadia;Geopsychrobacteraceae;Desulfuromusa;,5,6
+genus,Ercella,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Ercella;,5,6
+genus,Ezakiella,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Ezakiella;,5,6
+genus,Fastidiosipila,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Fastidiosipila;,5,6
+genus,Fenollaria,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Fenollaria;,5,6
+genus,Fervidicola,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Fervidicola;,5,6
+genus,Finegoldia,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Finegoldia;,5,6
+genus,Gallicola,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Gallicola;,5,6
+genus,Gelria,Bacteria;Firmicutes;Incertae Sedis;Gelria;,4,6
+genus,Geoalkalibacter,Bacteria;Desulfobacterota;Desulfuromonadia;Geoalkalibacteraceae;Geoalkalibacter;,5,6
+genus,Geopsychrobacter,Bacteria;Desulfobacterota;Desulfuromonadia;Geopsychrobacteraceae;Geopsychrobacter;,5,6
+genus,Geothermobacter,Bacteria;Desulfobacterota;Desulfuromonadia;Geothermobacteraceae;Geothermobacter;,5,6
+genus,Gibbsiella,Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Gibbsiella;,5,6
+genus,Gottschalkia,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Gottschalkia;,5,6
+genus,Gracilibacter,Bacteria;Firmicutes;Clostridia;Gracilibacteraceae;Gracilibacter;,5,6
+genus,Guggenheimella,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Guggenheimella;,5,6
+genus,Helcococcus,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Helcococcus;,5,6
+genus,HN-HF0106,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;HN-HF0106;,5,6
+genus,Hungateiclostridium,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Hungateiclostridium;,5,6
+genus,Hydrogenispora,Bacteria;Firmicutes;Limnochordia;Hydrogenispora;,4,6
+genus,Hydrogenoanaerobacterium,Bacteria;Firmicutes;Clostridia;Oscillospirales;Hydrogenoanaerobacterium;,5,6
+genus,JTB215,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;JTB215;,5,6
+genus,Keratinibaculum,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Keratinibaculum;,5,6
+genus,livecontrolB21,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;livecontrolB21;,5,6
+genus,Lutispora,Bacteria;Firmicutes;Clostridia;Gracilibacteraceae;Lutispora;,5,6
+genus,Mageibacillus,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Mageibacillus;,5,6
+genus,Malonomonas,Bacteria;Desulfobacterota;Desulfuromonadia;Geopsychrobacteraceae;Malonomonas;,5,6
+genus,Marine Group III,Archaea;Thermoplasmatota;Thermoplasmata;Marine Group III;,4,6
+genus,Marinibaculum,Bacteria;Proteobacteria;Alphaproteobacteria;Ferrovibrionales;Marinibaculum;,5,6
+genus,MCWD3,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;MCWD3;,5,6
+genus,Methylohalomonas,Bacteria;Proteobacteria;Gammaproteobacteria;Granulosicoccales;Methylohalomonas;,5,6
+genus,Murdochiella,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Murdochiella;,5,6
+genus,Natronincola,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Natronincola;,5,6
+genus,Oligoflexus,Bacteria;Bdellovibrionota;Oligoflexia;Oligoflexales;Oligoflexus;,5,6
+genus,Paludibaculum,Bacteria;Acidobacteriota;Acidobacteriae;Paludibaculum;,4,6
+genus,Parvimonas,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Parvimonas;,5,6
+genus,Pelobacter,Bacteria;Desulfobacterota;Desulfuromonadia;Geopsychrobacteraceae;Pelobacter;,5,6
+genus,Pelotomaculum,Bacteria;Firmicutes;Desulfotomaculia;Desulfotomaculales;Pelotomaculum;,5,6
+genus,Peptoniphilus,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Peptoniphilus;,5,6
+genus,Proteinivorax,Bacteria;Firmicutes;Clostridia;Proteinivoracales;Proteinivorax;,5,6
+genus,Pseudobacteriovorax,Bacteria;Bdellovibrionota;Oligoflexia;Oligoflexales;Pseudobacteriovorax;,5,6
+genus,Pseudobacteroides,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Pseudobacteroides;,5,6
+genus,Pseudoclostridium,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Pseudoclostridium;,5,6
+genus,Ruminiclostridium,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Ruminiclostridium;,5,6
+genus,Saccharofermentans,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Saccharofermentans;,5,6
+genus,Serpentinicella,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Serpentinicella;,5,6
+genus,Soehngenia,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Soehngenia;,5,6
+genus,Sporanaerobacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Sporanaerobacter;,5,6
+genus,Sporosalibacterium,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Sporosalibacterium;,5,6
+genus,Syntrophotalea,Bacteria;Desulfobacterota;Desulfuromonadia;Syntrophotaleaceae;Syntrophotalea;,5,6
+genus,Taonella,Bacteria;Proteobacteria;Alphaproteobacteria;Ferrovibrionales;Taonella;,5,6
+genus,TC1,Bacteria;Firmicutes;Desulfitobacteriia;Desulfitobacteriales;TC1;,5,6
+genus,Tepidanaerobacter,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Tepidanaerobacter;,5,6
+genus,Tepidimicrobium,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Tepidimicrobium;,5,6
+genus,Thermoclostridium,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;Thermoclostridium;,5,6
+genus,Thermogymnomonas,Archaea;Thermoplasmatota;Thermoplasmata;Thermoplasmatales;Thermogymnomonas;,5,6
+genus,Thermohalobacter,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Thermohalobacter;,5,6
+genus,Thermosediminibacter,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Thermosediminibacter;,5,6
+genus,Thermovenabulum,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Thermovenabulum;,5,6
+genus,Thermovorax,Bacteria;Firmicutes;Thermovenabulia;Thermovenabulales;Thermovorax;,5,6
+genus,Thioprofundum,Bacteria;Proteobacteria;Gammaproteobacteria;Thioprofundaceae;Thioprofundum;,5,6
+genus,Tindallia,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Tindallia;,5,6
+genus,Tissierella,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;Tissierella;,5,6
+genus,TM7,Bacteria;Patescibacteria;Saccharimonadia;Saccharimonadales;YM;S32;TM7;,7,6
+genus,Trichloromonas,Bacteria;Desulfobacterota;Desulfuromonadia;Desulfuromonadaceae;Trichloromonas;,5,6
+genus,UCG-012,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;UCG-012;,5,6
+genus,uncultured,Archaea;Halobacterota;Halobacteria;Halobacterales;uncultured;,5,6
+genus,uncultured,Archaea;Halobacterota;Methanocellia;Methanocellales;uncultured;,5,6
+genus,uncultured,Archaea;Halobacterota;Methanomicrobia;Methanomicrobiales;uncultured;,5,6
+genus,uncultured,Archaea;Thermoplasmatota;uncultured;,3,6
+genus,uncultured,Bacteria;Firmicutes;Clostridia;Gracilibacteraceae;uncultured;,5,6
+genus,uncultured,Bacteria;Firmicutes;Clostridia;Hungateiclostridiaceae;uncultured;,5,6
+genus,uncultured,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;uncultured;,5,6
+genus,uncultured,Bacteria;Proteobacteria;Alphaproteobacteria;Ferrovibrionales;uncultured;,5,6
+genus,W5053,Bacteria;Firmicutes;Clostridia;Peptostreptococcales-Tissierellales;W5053;,5,6
