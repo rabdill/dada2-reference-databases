@@ -5,3 +5,7 @@ It downloads the Silva 138 SSU (16S) taxonomy database from the Silva website an
 (implemented in DADA2) that does not rely on mothur-preprocessed files.
 This version includes an addition training file designed specifically for full-length 16S amplicon sequencing.
 The resulting dada2-formatted database files and further information are available at (https://zenodo.org/record/3986799).
+
+In March 2021 I was [alerted by a user](https://github.com/mikemc/dada2-reference-databases/issues/1) to a problem with a small fraction of taxa;
+see (https://github.com/benjjneb/dada2/issues/1293) and the "bad-taxa" R-markdown and html files in this folder for more information.
+A list of affected taxa are in [bad-taxa.csv](./bad-taxa.csv).
