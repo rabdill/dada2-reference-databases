@@ -32,7 +32,7 @@ packageVersion("dada2")
 silva_version <- "138.1"
 
 # Path for storing precursor files and output
-path <- here::here("silva-138.1")
+path <- here::here()
 ```
 
 Create the locations where we will download the precursor files and save our output,

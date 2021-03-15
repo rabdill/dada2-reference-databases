@@ -11,7 +11,7 @@ packageVersion("dada2")
 
 silva_version <- "138.1"
 
-path <- here::here("silva-138.1")
+path <- here::here()
 ```
 
 ```{r}

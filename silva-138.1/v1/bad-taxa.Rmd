@@ -19,7 +19,7 @@ For example, some genera are missing a family or order in Silva, and some taxa (
 ```{r}
 library(tidyverse)
 
-path <- here::here("silva-138.1")
+path <- here::here()
 silva_version <- "138.1"
 
 rnks <- c("domain", "phylum", "class", "order", "family", "genus")
