@@ -1,4 +1,4 @@
-# Silva SSU 138.1, version 1
+# Silva SSU 138.2, version 1
 
 These R-markdown documents create and check the Silva 138.2 prokaryotic SSU taxonomic training data formatted for DADA2 that is deposited in (https://zenodo.org/record/4587955).
 

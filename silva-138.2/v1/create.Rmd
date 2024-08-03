@@ -1,7 +1,7 @@
 ---
-title: "Prepare Silva 138.1 SSU taxonomy data for DADA2"
+title: "Prepare Silva 138.2 SSU taxonomy data for DADA2"
 author: "Michael McLaren"
-date: "2021-03-06"
+date: "2021-08-02"
 output:
   html_document:
     toc: false
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This script downloads Silva SSU 138.1 taxonomic database files and formats them for use with DADA2. 
+This script downloads Silva SSU 138.2 taxonomic database files and formats them for use with DADA2. 
 
 ```{r}
 library(dplyr) 
@@ -29,7 +29,7 @@ library(purrr)
 
 packageVersion("dada2")
 
-silva_version <- "138.1"
+silva_version <- "138.2"
 
 # Path for storing precursor files and output
 path <- here::here()

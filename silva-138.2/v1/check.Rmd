@@ -1,5 +1,5 @@
 ---
-title: "Check DADA2-formatted Silva 138.1 SSU taxonomy files"
+title: "Check DADA2-formatted Silva 138.2 SSU taxonomy files"
 author: "Michael McLaren"
 date: "2021-03-07"
 ---
@@ -9,7 +9,7 @@ library(tidyverse)
 
 packageVersion("dada2")
 
-silva_version <- "138.1"
+silva_version <- "138.2"
 
 path <- here::here()
 ```

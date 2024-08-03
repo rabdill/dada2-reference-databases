@@ -1,5 +1,5 @@
 ---
-title: "Investigate problematic taxa (Silva 138.1)"
+title: "Investigate problematic taxa (Silva 138.2)"
 author: "Michael McLaren"
 date: "2021-03-15"
 ---
@@ -20,7 +20,7 @@ For example, some genera are missing a family or order in Silva, and some taxa (
 library(tidyverse)
 
 path <- here::here()
-silva_version <- "138.1"
+silva_version <- "138.2"
 
 rnks <- c("domain", "phylum", "class", "order", "family", "genus")
 ```
