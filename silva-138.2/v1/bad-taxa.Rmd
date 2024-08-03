@@ -1,0 +1,146 @@
+---
+title: "Investigate problematic taxa (Silva 138.1)"
+author: "Michael McLaren"
+date: "2021-03-15"
+---
+
+Backstory:
+
+- https://github.com/mikemc/dada2-reference-databases/issues/1
+- https://github.com/benjjneb/dada2/issues/1293
+
+Aim is to determine which taxa ended up with incorrect taxonomy strings in the DADA2-formatted training files.
+These should be taxa that either do not have the full complement of standard ranks assigned to them by Silva, or that include an additional non-standard rank,
+where the standard Silva ranks used by DADA2 are domain, phylum, class, order, family, and genus. 
+For example, some genera are missing a family or order in Silva, and some taxa (mostly Eukaryotes which we are not interested in here) have additional ranks like suborder.
+
+## Setup
+
+```{r}
+library(tidyverse)
+
+path <- here::here()
+silva_version <- "138.1"
+
+rnks <- c("domain", "phylum", "class", "order", "family", "genus")
+```
+
+First, I load the table with each Silva taxon (includes all taxa at genus-level and above), filter to just prokaryotes, extract the domain and name of each taxon, and count the number of ranks that are included in its taxonomic path (based on the number of semicolons).
+```{r}
+tax_file <- "tax_slv_ssu_{silva_version}.txt" %>%
+  map_chr(str_glue) %>%
+  map_chr(~file.path(path, "precursors", .))
+tax <- tax_file %>%
+  read_tsv(
+    col_names = c("path", "taxid", "rank", "remark", "release"),
+    col_types = "ciccc"
+  ) %>%
+  mutate(domain = str_extract(path, "^[^;]+")) %>%
+  filter(domain != "Eukaryota") %>%
+  mutate(
+    name = str_extract(path, "[^;]+(?=;$)"),
+    standard_rank = rank %in% rnks,
+    path_ranks = str_count(path, ";"),
+    path_ranks_expected = match(rank, rnks)
+  ) %>%
+  glimpse
+```
+
+## Charactierize the problematic taxa
+
+First check for any nonstandard ranks:
+```{r}
+tax %>% filter(!standard_rank) %>%  nrow
+```
+There are no nonstandard ranks in the prokaryotes.
+
+Let's inspect the cases where there are not the expected number of ranks in a tax path. 
+```{r}
+tax %>%
+  filter(standard_rank) %>%
+  count(sign = sign(path_ranks - path_ranks_expected))
+```
+In all cases of disagreement there are too few ranks.
+This is as expected: Since there are no non-standard ranks, all disagreements are from missing ranks.
+The number of taxa with disagreements has roughly halved since silva 138.
+
+Let's look at the number and fraction of problematic taxa at each rank overall and within Bacteria and Archaea,
+```{r}
+tax0 <- tax %>%
+  filter(standard_rank) %>%
+  mutate(across(rank, factor, levels = rnks))
+
+tax0 %>%
+  with_groups(rank, 
+    summarize, 
+    n_total = n(),
+    n_bad = sum(path_ranks != path_ranks_expected),
+    frac_bad = mean(path_ranks != path_ranks_expected),
+  ) %>%
+  filter(rank != "domain") %>%
+  knitr::kable(digits = 3)
+
+tax0 %>%
+  with_groups(c(domain, rank), 
+    summarize, 
+    n_total = n(),
+    n_bad = sum(path_ranks != path_ranks_expected),
+    frac_bad = mean(path_ranks != path_ranks_expected),
+  ) %>%
+  filter(rank != "domain") %>%
+  knitr::kable(digits = 3)
+```
+As in Silva 138, the problem is confined to families and genera.
+
+Finally, let's output a table of the affected taxa,
+```{r}
+not_ok <- tax %>%
+  filter(path_ranks != path_ranks_expected) %>%
+  select(rank, name, path, ranks_present = path_ranks, 
+    ranks_expected = path_ranks_expected) %>%
+  arrange(rank, name, path)
+```
+
+```{r}
+write_csv(not_ok, file.path(path, "bad-taxa.csv"))
+```
+
+## Further checks
+
+All of the genera of affected families should also be affected (these are families for which the order is missing). Let's confirm.
+```{r}
+fams <- not_ok %>%
+  filter(rank == "family") %>%
+  pull(name)
+pattern <- fams %>% str_c(collapse = "|")
+genera_of_fams <- tax %>%
+  filter(rank == "genus", str_detect(path, pattern)) %>%
+  pull(name)
+all(genera_of_fams %in% not_ok$name)
+```
+However, most affected genera are are not in these families,
+```{r}
+not_ok %>%
+  filter(rank == "genus") %>%
+  count(name %in% genera_of_fams)
+```
+Instead, these genera do not have a family. 
+For example, Alkaliphilus has no family, but all other standard ranks.
+```{r}
+p <- tax %>% 
+  filter(name %in% c("Alkaliphilus")) %>% 
+  pull(path) %>%
+  str_split(";") %>%
+  .[[1]]
+tax %>% 
+  filter(name %in% p) %>%
+  select(name, rank, path) %>%
+  arrange(path)
+```
+
+## Session info
+
+```{r, R.options = list(width = 83)}
+sessioninfo::session_info()
+```
+
